@@ -26,7 +26,10 @@ public class MemberController {
     public void getMember() {
         List<Member> members= service.findMember();
 
-        List<String> collect = members.stream().map(Member::getMemberId).collect(Collectors.toList());
+        List<String> collect = members.stream()
+                .map(Member::getMemberId)
+                .collect(Collectors.toList());
+
         for (String s : collect) {
             log.info("member = {}", s);
         }

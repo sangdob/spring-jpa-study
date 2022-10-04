@@ -1,5 +1,6 @@
 package com.jpa.entity;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -19,6 +20,16 @@ public class Member {
     @Column(name = "MemberId")
     private String memberId;
 
-    @Column(name = "money")
-    private BigInteger money;
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "city")
+    private String city;
+
+    @Column(name = "street")
+    private String street;
+
+    @Column(name = "zipCode")
+    private String zipCode;
+
 }
