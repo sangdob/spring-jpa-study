@@ -16,7 +16,7 @@ public class Item {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "stockQuantity")
+    @Column(name = "name")
     private String name;
 
     @Column(name = "price")

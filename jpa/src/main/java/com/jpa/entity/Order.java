@@ -13,12 +13,15 @@ public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "id", nullable = false)
+    @Column(name = "orderId", nullable = false)
     private Long id;
 
+    @Column(name="memberId")
     private String memberId;
 
     private LocalDateTime orderDate;
 
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private OrderStatus status;
+
 }
