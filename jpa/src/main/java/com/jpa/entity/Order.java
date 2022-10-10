@@ -16,7 +16,10 @@ public class Order {
     @Column(name = "orderId", nullable = false)
     private Long id;
 
-    @Column(name="memberId")
+    @Column(table = "member")
+    private Member member;
+
+    @Column(name = "memberId")
     private String memberId;
 
     private LocalDateTime orderDate;

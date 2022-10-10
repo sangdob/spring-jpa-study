@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
     <persistence-unit name="jpaStudy">
-        <class>com.jpa.entity.**</class>
+        <class>com.jpa.entity.Member</class>
+        <class>com.jpa.entity.Order</class>
+        <class>com.jpa.entity.Item</class>
+        <class>com.jpa.entity.OrderItem</class>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
             <property name="javax.persistence.jdbc.user" value="postgres"/>
             <property name="javax.persistence.jdbc.password" value="1234"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/jpaStudy"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/jpastudy"/>
             <!-- 콘솔에 하이버네이트가 실행하는 SQL문 출력 -->
             <property name="hibernate.show_sql" value="true"/>
             <!-- SQL 출력 시 보기 쉽게 정렬 -->

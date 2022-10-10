@@ -19,14 +19,17 @@ public class JpaMain {
         tx.begin();
 
         try {
-        /*    Member member = new Member();
+            Member member = new Member();
+            member.setMemberId("A");
             member.setName("A");
 
             Member member2 = new Member();
-            member.setName("B");
+            member.setMemberId("B");
+            member2.setName("B");
 
             Member member3 = new Member();
-            member.setName("C");
+            member.setMemberId("C");
+            member3.setName("C");
 
             entityManager.persist(member);
             entityManager.persist(member2);
@@ -34,7 +37,7 @@ public class JpaMain {
 
             log.info("member1 = {}", member.getName());
             log.info("member2 = {}", member2.getName());
-            log.info("member3 = {}", member3.getName());*/
+            log.info("member3 = {}", member3.getName());
 
             tx.commit();
         } catch (Exception e) {
