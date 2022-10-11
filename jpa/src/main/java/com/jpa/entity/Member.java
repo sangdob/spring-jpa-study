@@ -17,7 +17,7 @@ import java.math.BigInteger;
 public class Member {
 
     @Id
-    @Column(name = "memberId")
+    @Column(name = "USERNAME")
     private String memberId;
 
     @Column(name = "name")

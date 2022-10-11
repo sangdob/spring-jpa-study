@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
     <persistence-unit name="jpaStudy">
-        <class>com.jpa.entity.Member</class>
-        <class>com.jpa.entity.Order</class>
-        <class>com.jpa.entity.Item</class>
-        <class>com.jpa.entity.OrderItem</class>
+<!--        <class>com.jpa.entity.Member</class>-->
+<!--        <class>com.jpa.entity.Order</class>-->
+<!--        <class>com.jpa.entity.Item</class>-->
+<!--        <class>com.jpa.entity.OrderItem</class>-->
+        <class>com.jpa.entity.oneway.Team</class>
+        <class>com.jpa.entity.oneway.Member</class>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
             <property name="javax.persistence.jdbc.user" value="postgres"/>
