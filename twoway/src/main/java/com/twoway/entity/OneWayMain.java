@@ -25,6 +25,10 @@ public class OneWayMain {
 
             Member member = new Member();
             member.setUserName("member1");
+            /**
+             * team 변경 시 현재 매핑된 member에서 변경 후 persist
+             */
+            member.changeTeam(team);
             member.setTeam(team);
 
             entityManager.persist(member);
