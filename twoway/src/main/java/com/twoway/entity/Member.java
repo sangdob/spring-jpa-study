@@ -14,6 +14,7 @@ public class Member {
 
     @Id
     @GeneratedValue
+    @Column(name = "id")
     private Long id;
 
     @Column(name = "user_name")
