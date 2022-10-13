@@ -5,8 +5,13 @@
         <!--        <class>com.jpa.entity.Order</class>-->
         <!--        <class>com.jpa.entity.Item</class>-->
         <!--        <class>com.jpa.entity.OrderItem</class>-->
-        <class>com.twoway.entity.Team</class>
+<!--        <class>com.twoway.entity.Team</class>-->
+
         <class>com.twoway.entity.Member</class>
+        <class>com.twoway.entity.Order</class>
+        <class>com.twoway.entity.Item</class>
+        <class>com.twoway.entity.OrderItem</class>
+
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
             <property name="javax.persistence.jdbc.user" value="postgres"/>

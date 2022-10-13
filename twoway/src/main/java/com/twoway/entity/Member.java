@@ -1,31 +1,42 @@
 package com.twoway.entity;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Getter
 @Setter
+@RequiredArgsConstructor
 @Entity(name = "member")
-@NoArgsConstructor
 public class Member {
 
     @Id
     @GeneratedValue
-    @Column(name = "id")
+    @Column(name = "member_id")
     private Long id;
 
-    @Column(name = "user_name")
-    private String userName;
+    @Column(name = "name")
+    private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "team_id")
-    private Team team;
+    @Column(name = "city")
+    private String city;
 
-    public void changeTeam(Team team) {
-        this.team = team;
-        team.getMembers().add(this);
+    @Column(name = "street")
+    private String street;
+
+    @Column(name = "zip_code")
+    private String zipCode;
+
+    @OneToMany(mappedBy = "member")
+    private List<Order> orders = new ArrayList<>();
+
+    public void addOrder(Order order) {
+        orders.add(order);
+        order.setMember(this);
     }
 }

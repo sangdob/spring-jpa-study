@@ -23,12 +23,11 @@ public class Team {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(mappedBy = "team")
+    @OneToMany(orphanRemoval = true)
     private List<Member> members = new ArrayList<>();
 
-    public void addMember(Member member) {
+   /* public void addMember(Member member) {
         member.setTeam(this);
         members.add(member);
-    }
-
+    }*/
 }

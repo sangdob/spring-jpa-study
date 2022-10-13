@@ -23,11 +23,11 @@ public class OneWayMain {
             team.setName("teamA");
             entityManager.persist(team);
 
-            Member member = new Member();
+   /*         Member member = new Member();
             member.setUserName("member1");
-            /**
+            *//**
              * team 변경 시 현재 매핑된 member에서 변경 후 persist
-             */
+             *//*
             member.changeTeam(team);
             member.setTeam(team);
 
@@ -41,10 +41,10 @@ public class OneWayMain {
 
             for (Member m : members) {
                 log.info("member = {}", m.getUserName());
-            }
+            }*/
 
-            team.getMembers().add(member);
-
+     /*       team.getMembers().add(member);
+*/
             tx.commit();
         } catch (Exception e) {
             tx.rollback();
