@@ -5,8 +5,16 @@
 <!--        <class>com.jpa.entity.Order</class>-->
 <!--        <class>com.jpa.entity.Item</class>-->
 <!--        <class>com.jpa.entity.OrderItem</class>-->
-        <class>com.jpa.entity.oneway.Team</class>
-        <class>com.jpa.entity.oneway.Member</class>
+<!--        <class>com.jpa.entity.training.Team</class>-->
+<!--        <class>com.jpa.training.Member</class>-->
+<!--        <class>com.jpa.training.Delivery</class>-->
+<!--        <class>com.jpa.training.Item</class>-->
+<!--        <class>com.jpa.training.Order</class>-->
+<!--        <class>com.jpa.training.OrderItem</class>-->
+        <class>com.jpa.supertype.Movie</class>
+        <class>com.jpa.supertype.Item</class>
+        <class>com.jpa.supertype.Album</class>
+        <class>com.jpa.supertype.Book</class>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
             <property name="javax.persistence.jdbc.user" value="postgres"/>
@@ -21,7 +29,7 @@
             <!-- JPA 표준에 맞춘 새로운 키 생성 전략 사용 -->
             <property name="hibernate.id.new_generator_mappings" value="true"/>
             <!-- 애플리케이션 실행 시점에 데이터베이스 테이블 자동 생성 -->
-            <!--<property name="hibernate.hbm2ddl.auto" value="DEBUG"/>-->
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
             <!--<property name="hibernate.SQL" value="DEBUG"/>-->
             <!-- 이름 매핑 전략 설정 - 자바의 카멜 표기법을 테이블의 언더스코어 표기법으로 매핑
              ex) lastModifiedDate -> last_modified_date -->

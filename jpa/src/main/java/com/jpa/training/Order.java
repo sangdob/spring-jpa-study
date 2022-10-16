@@ -22,7 +22,7 @@ public class Order {
     private Long id;
 
     @ManyToOne
-    @Column(table = "member")
+    @Column(table = "member_id")
     private Member member;
 
     @OneToOne

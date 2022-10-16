@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
+@Entity(name = "delivery")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -17,7 +17,7 @@ public class Delivery {
     @GeneratedValue
     private Long id;
 
-    @OneToMany(mappedBy = "orders")
+    @OneToOne(mappedBy = "delivery")
     private Order orders = new Order();
 
     private String city;
