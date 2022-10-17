@@ -5,11 +5,11 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
-@Entity
+//@Entity
 @Getter
 @Setter
 @DiscriminatorColumn
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Item {
 
     @Id

@@ -12,7 +12,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Delivery {
+public class Delivery extends BaseEntity{
     @Id
     @GeneratedValue
     private Long id;

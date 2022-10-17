@@ -6,9 +6,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import java.time.LocalDateTime;
 
 @Slf4j
 public class SuperRelationTest {
+
     public static void main(String[] args) {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("jpaStudy");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -17,7 +19,6 @@ public class SuperRelationTest {
         tx.begin();
 
         try {
-
             Movie movie = new Movie();
             movie.setActor("송강");
             movie.setDirector("abc");

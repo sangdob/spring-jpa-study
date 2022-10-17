@@ -1,6 +1,5 @@
 package com.jpa.training;
 
-import com.jpa.entity.Member;
 import com.jpa.entity.OrderStatus;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,21 +14,21 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Order {
+public class Order extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     @ManyToOne
-    @Column(table = "member_id")
+    @JoinColumn(name = "member_id")
     private Member member;
 
     @OneToOne
-    @Column(table = "delivery")
+    @JoinColumn(name = "delivery_id")
     private Delivery delivery;
 
-    @OneToMany(mappedBy = "orders_item_id")
+    @OneToMany(mappedBy = "order")
     private List<OrderItem> orderItems = new ArrayList<>();
 
     private LocalDateTime orderDate;

@@ -8,11 +8,11 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
+//@Entity
 @Getter
 @Setter
 @NoArgsConstructor
-public class Category {
+public class Category extends BaseEntity{
     @Id
     @GeneratedValue
     private Long id;

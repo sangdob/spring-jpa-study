@@ -12,8 +12,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Member
-{
+public class Member extends BaseEntity {
 
     @Id
     @GeneratedValue
@@ -27,8 +26,7 @@ public class Member
 
     private String zipcode;
 
-    @OneToMany
-    @JoinColumn(name = "order_id")
+    @OneToMany(mappedBy = "member")
     private List<Order> orders = new ArrayList<>();
 
 }

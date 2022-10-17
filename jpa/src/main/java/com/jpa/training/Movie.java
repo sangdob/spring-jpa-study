@@ -1,4 +1,4 @@
-package com.jpa.supertype;
+package com.jpa.training;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -6,11 +6,11 @@ import lombok.ToString;
 
 import javax.persistence.Entity;
 
-//@Entity
+@Entity
 @Getter
 @Setter
 @ToString
-public class Movie extends Item{
+public class Movie extends Item {
     private String director;
     private String actor;
 }

@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @NoArgsConstructor
-public class OrderItem {
+public class OrderItem extends BaseEntity{
     @Id
     @GeneratedValue
     private Long id;

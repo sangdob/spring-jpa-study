@@ -6,15 +6,15 @@
 <!--        <class>com.jpa.entity.Item</class>-->
 <!--        <class>com.jpa.entity.OrderItem</class>-->
 <!--        <class>com.jpa.entity.training.Team</class>-->
-<!--        <class>com.jpa.training.Member</class>-->
-<!--        <class>com.jpa.training.Delivery</class>-->
-<!--        <class>com.jpa.training.Item</class>-->
-<!--        <class>com.jpa.training.Order</class>-->
-<!--        <class>com.jpa.training.OrderItem</class>-->
-        <class>com.jpa.supertype.Movie</class>
-        <class>com.jpa.supertype.Item</class>
-        <class>com.jpa.supertype.Album</class>
-        <class>com.jpa.supertype.Book</class>
+        <class>com.jpa.training.Member</class>
+        <class>com.jpa.training.Delivery</class>
+        <class>com.jpa.training.Item</class>
+        <class>com.jpa.training.Order</class>
+        <class>com.jpa.training.OrderItem</class>
+        <class>com.jpa.training.Movie</class>
+        <class>com.jpa.training.Album</class>
+        <class>com.jpa.training.Book</class>
+<!--        <class>com.jpa.supertype.Item</class>-->
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
             <property name="javax.persistence.jdbc.user" value="postgres"/>
