@@ -27,6 +27,7 @@ public class OneWayMain {
             entityManager.persist(member);
 
             Member findMember = entityManager.find(Member.class, member.getId());
+            Member refMember = entityManager.getReference(Member.class, member.getId());
 
             Team findTeam = findMember.getTeam();
             log.info("find Team Id = {}", findTeam.getId());
