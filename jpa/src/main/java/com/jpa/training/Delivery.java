@@ -20,11 +20,8 @@ public class Delivery extends BaseEntity{
     @OneToOne(mappedBy = "delivery")
     private Order orders = new Order();
 
-    private String city;
-
-    private String street;
-
-    private String zipcode;
+    @Embedded
+    private Address address;
 
     @Enumerated(EnumType.STRING)
     private DeliveryStatus status;
