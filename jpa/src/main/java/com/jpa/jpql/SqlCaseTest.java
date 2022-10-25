@@ -1,14 +1,16 @@
 package com.jpa.jpql;
 
-
 import com.jpa.entity.Member;
 import lombok.extern.slf4j.Slf4j;
 
-import javax.persistence.*;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 import java.util.List;
 
 @Slf4j
-public class JpqlTest {
+public class SqlCaseTest {
     public static void main(String[] args) {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("jpaStudy");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -17,9 +19,16 @@ public class JpqlTest {
         tx.begin();
 
         try {
-            List<Member> findAllMember = entityManager.createQuery("select M from Member M", Member.class).getResultList();
+            String query = "select" +
+                    "case when m.age <= 10 then '학생요금'" +
+                    "     when m.age >= 60 then '경로요금'" +
+                    "else '일반요금'" +
+                    "end" +
+                    "from Member m";
 
-            for ( Member m : findAllMember) {
+            List<String> findAllMember = entityManager.createQuery(query, String.class).getResultList();
+
+            for ( String m : findAllMember) {
                 log.info("member = {}", m.toString());
             }
             tx.commit();
