@@ -49,6 +49,7 @@ public class FecthJoinTest {
             entityManager.flush();
             entityManager.clear();
 
+//            fetch join 시 alias 왠만하면 사용하지말기!!
             String query = "SELECT m from member m join fetch t.members";
 
             List<Member> findAllMember = entityManager.createQuery(query, Member.class).getResultList();
