@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
     <persistence-unit name="jpaStudy">
+        <class>jpa.shop.domain.Member</class>
+        <class>jpa.shop.domain.Order</class>
+        <class>jpa.shop.domain.Category</class>
+        <class>jpa.shop.domain.OrderItem</class>
+        <class>jpa.shop.domain.Delivery</class>
+        <class>jpa.shop.domain.item.Item</class>
         <properties>
+
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
             <property name="javax.persistence.jdbc.user" value="postgres"/>
             <property name="javax.persistence.jdbc.password" value="1234"/>
