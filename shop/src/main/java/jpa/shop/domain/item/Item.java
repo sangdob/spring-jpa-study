@@ -35,6 +35,5 @@ public abstract class Item extends BaseEntity {
 
     @ManyToMany(fetch = FetchType.LAZY
             , mappedBy = "items")
-    @JoinColumn(name = "category_id")
     private List<Category> categories = new ArrayList<>();
 }

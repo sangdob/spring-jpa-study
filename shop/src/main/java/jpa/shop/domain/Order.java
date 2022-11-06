@@ -28,8 +28,12 @@ public class Order extends BaseEntity{
     @JoinColumn(name="delivery_id")
     private Delivery delivery;
 
+    /**
+     * cascade persist() 시 자동 매핑
+     */
     @OneToMany(fetch = FetchType.LAZY
-            , mappedBy = "order")
+            , mappedBy = "order"
+            , cascade = CascadeType.ALL)
     private List<OrderItem> orderItems = new ArrayList<>();
 
     private OrderStatus status;
