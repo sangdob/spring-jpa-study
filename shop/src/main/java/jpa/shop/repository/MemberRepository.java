@@ -2,6 +2,7 @@ package jpa.shop.repository;
 
 import jpa.shop.domain.Member;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -10,11 +11,10 @@ import javax.persistence.PersistenceUnit;
 import java.util.List;
 
 @Repository
-@NoArgsConstructor
+@RequiredArgsConstructor
 public class MemberRepository {
 
-    @PersistenceContext
-    private EntityManager entityManager;
+    private final EntityManager entityManager;
 
     public void save(Member member) {
         entityManager.persist(member);
