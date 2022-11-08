@@ -13,10 +13,9 @@ public class ShopApplication {
     public static void main(String[] args) {
         SpringApplication.run(ShopApplication.class, args);
 
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("shop");
+      /*  EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("shop");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-        entityManager.close();
-        entityManagerFactory.close();
+        entityManager.close();*/
     }
 
 }

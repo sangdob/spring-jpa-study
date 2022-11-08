@@ -14,6 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class MemberRepository {
 
+    @PersistenceContext
     private final EntityManager entityManager;
 
     public void save(Member member) {
