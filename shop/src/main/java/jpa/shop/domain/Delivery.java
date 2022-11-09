@@ -1,10 +1,12 @@
 package jpa.shop.domain;
 
 import jpa.shop.domain.status.DeliveryStatus;
+import lombok.Getter;
 
 import javax.persistence.*;
 
 @Entity
+@Getter
 public class Delivery extends BaseEntity{
 
     @Id
@@ -14,11 +16,15 @@ public class Delivery extends BaseEntity{
 
     @OneToOne(fetch = FetchType.LAZY
            , mappedBy = "delivery")
-    private Order orders;
+    private Order order;
 
     @Embedded
     private Address address;
 
     @Enumerated(EnumType.STRING)
     private DeliveryStatus status;
+
+    public void setOrder(Order order) {
+        this.order = order;
+    }
 }
