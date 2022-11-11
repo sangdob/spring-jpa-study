@@ -2,6 +2,7 @@ package jpa.shop.domain;
 
 import jpa.shop.domain.status.DeliveryStatus;
 import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
@@ -19,6 +20,7 @@ public class Delivery extends BaseEntity{
     private Order order;
 
     @Embedded
+    @Setter
     private Address address;
 
     @Enumerated(EnumType.STRING)

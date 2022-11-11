@@ -10,7 +10,6 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
 public class OrderItem extends BaseEntity {
     @Id
     @GeneratedValue
@@ -29,7 +28,8 @@ public class OrderItem extends BaseEntity {
 
     private int count;
 
-
+    protected OrderItem() {
+    }
 
     /**
      * 생성 메서드

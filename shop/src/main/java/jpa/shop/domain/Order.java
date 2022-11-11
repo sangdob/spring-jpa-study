@@ -41,6 +41,10 @@ public class Order extends BaseEntity{
 
     private LocalDateTime orderDate;
 
+    protected Order() {
+
+    }
+
     public void setStatus(OrderStatus status) {
         this.status = status;
     }
