@@ -25,6 +25,6 @@ public class Member extends BaseEntity{
     private Address address;
 
     @OneToMany(fetch = FetchType.LAZY
-            , mappedBy = "members")
+            , mappedBy = "member")
     private List<Order> orders = new ArrayList();
 }

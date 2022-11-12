@@ -19,9 +19,6 @@ public class MemberRepository {
 
     public void save(Member member) {
         entityManager.persist(member);
-
-        entityManager.flush();
-        entityManager.clear();
     }
 
     public Member findByMember(Long id) {

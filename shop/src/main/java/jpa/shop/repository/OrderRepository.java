@@ -17,8 +17,6 @@ public class OrderRepository {
     public void save(Order order) {
         entityManager.persist(order);
 
-        entityManager.flush();
-        entityManager.clear();
     }
 
     public Order findByOrder(Long id) {
