@@ -80,6 +80,7 @@ class OrderServiceTest {
         book.setName(name);
         book.setPrice(price);
         book.setStockQuantity(stockQuantity);
+        entityManager.persist(book);
         return book;
     }
 
@@ -87,6 +88,7 @@ class OrderServiceTest {
         Member member = new Member();
         member.setName(name);
         member.setAddress(address);
+        entityManager.persist(member);
         return member;
     }
 
