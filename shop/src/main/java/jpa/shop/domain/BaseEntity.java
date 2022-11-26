@@ -5,8 +5,6 @@ import java.time.LocalDateTime;
 
 @MappedSuperclass
 public class BaseEntity {
-
-
     private LocalDateTime createDate;
     private String createUser;
     private LocalDateTime updateDate;

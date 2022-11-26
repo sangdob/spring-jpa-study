@@ -9,5 +9,5 @@ public class MemberForm {
 
     private String city;
     private String street;
-    private String zipCode;
+    private String zipcode;
 }
