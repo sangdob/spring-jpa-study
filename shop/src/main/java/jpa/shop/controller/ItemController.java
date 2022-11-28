@@ -30,8 +30,13 @@ public class ItemController {
         book.setStockQuantity(bookForm.getStockQuantity());
         book.setAuthor(bookForm.getAuthor());
         book.setIsbn(bookForm.getIsbn());
-
         itemService.saveItem(book);
         return "redirect:/";
+    }
+
+    @GetMapping
+    public String list(Model model) {
+        model.addAttribute("items", itemService.findItems());
+        return "items/itemList";
     }
 }
