@@ -57,6 +57,12 @@ public class ItemController {
         return "items/updateItemForm";
     }
 
+    /**
+     * 업데이트 항목 저장 로직
+     * @param itemId
+     * @param form
+     * @return
+     */
     @PostMapping("/{items}/edit")
     public String updateItem(@PathVariable Long itemId, @ModelAttribute("form") BookForm form) {
         Book book = new Book();
