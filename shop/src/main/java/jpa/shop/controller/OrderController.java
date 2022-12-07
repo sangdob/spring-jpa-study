@@ -2,6 +2,7 @@ package jpa.shop.controller;
 
 import jpa.shop.domain.Member;
 import jpa.shop.domain.item.Item;
+import jpa.shop.repository.OrderSearch;
 import jpa.shop.service.ItemService;
 import jpa.shop.service.MemberService;
 import jpa.shop.service.OrderService;
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -32,4 +34,11 @@ public class OrderController {
         model.addAttribute("items", itemService.findItems());
         return "order/orderForm";
     }
+
+    @GetMapping("s")
+    public String orderList(@ModelAttribute("orderSearch") OrderSearch orderSearch, Model model) {
+        return null;
+//        return model.addAttribute("orders", orderService.findOrders(orderSearch));
+    }
+
 }
