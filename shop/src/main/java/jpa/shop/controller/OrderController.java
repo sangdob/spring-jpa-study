@@ -1,44 +1,48 @@
 package jpa.shop.controller;
 
-import jpa.shop.domain.Member;
-import jpa.shop.domain.item.Item;
 import jpa.shop.repository.OrderSearch;
 import jpa.shop.service.ItemService;
 import jpa.shop.service.MemberService;
 import jpa.shop.service.OrderService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/order")
+@RequestMapping
 public class OrderController {
-
-    @Autowired
     private final OrderService orderService;
-
-    @Autowired
     private final MemberService memberService;
-
-    @Autowired
     private final ItemService itemService;
 
-    @GetMapping
+    @GetMapping("/order")
     public String createForm(Model model) {
         model.addAttribute("members", memberService.findMembers());
         model.addAttribute("items", itemService.findItems());
         return "order/orderForm";
     }
 
-    @GetMapping("s")
-    public String orderList(@ModelAttribute("orderSearch") OrderSearch orderSearch, Model model) {
-        return null;
-//        return model.addAttribute("orders", orderService.findOrders(orderSearch));
+    @PostMapping("/order")
+    public String create(@RequestParam("memberId") Long memberId,
+                         @RequestParam("itemId") Long itemId,
+                         @RequestParam("count") int count) {
+        orderService.order(memberId, itemId, count);
+
+        return "redirect:/orders";
     }
 
+    @GetMapping("/orders")
+    public String orderList(@ModelAttribute("orderSearch") OrderSearch orderSearch, Model model) {
+        model.addAttribute("orders", orderService.findOrders(orderSearch));
+        return "order/orderList";
+    }
+
+    @PostMapping("/orders/{orderId}/cancel")
+
+    public String cancelOrder(@PathVariable("orderId") Long orderId) {
+        orderService.cancelOrder(orderId);
+        return "redirect:/orders";
+    }
 }

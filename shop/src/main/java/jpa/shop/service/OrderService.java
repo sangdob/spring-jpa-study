@@ -44,7 +44,7 @@ public class OrderService {
 
         // 주문 생성
         Order order = Order.createOrder(member, delivery, orderItem);
-        
+
         // 주문저장
         orderRepository.save(order);
 
@@ -65,8 +65,7 @@ public class OrderService {
     /**
      * 주문 검색
      */
-    public List<Order> findOrders(OrderSearch orderSearch){
-//        return orderRepository.findAll();
-        return null;
+    public List<Order> findOrders(OrderSearch orderSearch) {
+        return orderRepository.finaAll(orderSearch);
     }
 }

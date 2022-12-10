@@ -16,7 +16,7 @@
                 <div class="form-group mx-sm-1 mb-2">
                     <select th:field="*{orderStatus}" class="form-control">
                         <option value="">주문상태</option>
-                        <option th:each="status : ${T(jpabook.jpashop.domain.OrderStatus).values()}"
+                        <option th:each="status : ${T(jpa.shop.domain.status.OrderStatus).values()}"
                                 th:value="${status}"
                                 th:text="${status}">option
                         </option>
@@ -65,7 +65,7 @@
 </body>
 <script>
     function cancel(id) {
-        var form = document.createElement("form");
+        const form = document.createElement("form");
         form.setAttribute("method", "post");
         form.setAttribute("action", "/orders/" + id + "/cancel");
         document.body.appendChild(form);
