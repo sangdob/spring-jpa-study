@@ -28,7 +28,7 @@ class OrderServiceTest {
     @Autowired
     OrderRepository orderRepository;
 
-    @Test
+    @org.junit.Test
     public void 상품주문() throws Exception {
         Member member = createMember("회원1", new Address("seoul", "river", "123-111"));
         entityManager.persist(member);
@@ -65,7 +65,7 @@ class OrderServiceTest {
     }
 
     @Test
-    public void 상품주문_재고수량초과() throws Exception{
+    public void 상품주문_재고수량초과() throws Exception {
         Member member = createMember("주문재고수량", new Address("how", "where", "111"));
         Item item = createBook("jpa", 10000L, 10L);
 
@@ -75,6 +75,7 @@ class OrderServiceTest {
 
         fail("재고 수량 부족 예외");
     }
+
     private Book createBook(String name, long price, long stockQuantity) {
         Book book = new Book();
         book.setName(name);
