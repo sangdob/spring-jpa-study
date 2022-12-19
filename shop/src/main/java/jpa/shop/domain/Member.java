@@ -1,5 +1,6 @@
 package jpa.shop.domain;
 
+import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -12,12 +13,13 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Member extends BaseEntity{
+public class Member extends BaseEntity {
     @Id
     @GeneratedValue
     @Column(name = "member_id")
     private Long id;
 
+    @NotNull
     private String name;
 
     @Embedded
