@@ -39,5 +39,4 @@ public class ApiMemberController {
 
         return ResponseEntity.ok().body(response.hashCode());
     }
-
 }
