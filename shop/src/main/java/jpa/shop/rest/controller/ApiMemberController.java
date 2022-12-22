@@ -3,13 +3,11 @@ package jpa.shop.rest.controller;
 import jpa.shop.domain.Member;
 import jpa.shop.rest.dto.CreateMemberRequest;
 import jpa.shop.rest.dto.CreateMemberResponse;
+import jpa.shop.rest.dto.UpdateMemberRequest;
 import jpa.shop.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -38,5 +36,14 @@ public class ApiMemberController {
         response.setId(id);
 
         return ResponseEntity.ok().body(response.hashCode());
+    }
+
+    @PutMapping("/v2/members/{id}")
+    public ResponseEntity updateMemberV2(@PathVariable("id") Long id,
+                                         @RequestBody UpdateMemberRequest request) {
+        memberService.update(id, request.getName());
+        Member findMember = memberService.findByMember(id);
+        
+        return ResponseEntity.ok().body(findMember);
     }
 }

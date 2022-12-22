@@ -2,10 +2,7 @@ package jpa.shop.service;
 
 import jpa.shop.domain.Member;
 import jpa.shop.repository.MemberRepository;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,7 +23,7 @@ public class MemberService {
     public Long join(Member member) {
 //      중복회원 검색
         validateDuplidateMember(member);
-        
+
         memberRepository.save(member);
         return member.getId();
     }
@@ -45,5 +42,11 @@ public class MemberService {
 
     public Member findByMember(Long id) {
         return memberRepository.findByMember(id);
+    }
+
+    @Transactional
+    public void update(Long id, String name) {
+        Member member = memberRepository.findByMember(id);
+        member.setName(name);
     }
 }
