@@ -18,6 +18,10 @@ public class MemberService {
 
     private final MemberRepository memberRepository;
 
+    public int findMembersCount() {
+        return memberRepository.findByMembersOfCount();
+    }
+
     //   회원가입
     @Transactional
     public Long join(Member member) {
