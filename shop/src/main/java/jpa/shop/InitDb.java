@@ -9,7 +9,6 @@ import javax.annotation.PostConstruct;
 @RequiredArgsConstructor
 public class InitDb {
 
-
     private final InitService initService;
 
     @PostConstruct
