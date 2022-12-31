@@ -15,6 +15,9 @@ public class InitService {
 
     private final EntityManager entityManager;
 
+    /**
+     * create method refactoring
+     */
     public void dbInit1() {
         Member member = createMember("userAB", "seoul", "1", "1111");
         entityManager.persist(member);
