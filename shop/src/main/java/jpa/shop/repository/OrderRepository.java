@@ -28,9 +28,16 @@ public class OrderRepository {
         return entityManager.find(Order.class, id);
     }
 
+    public List<Order> findAll() {
+        return entityManager.createQuery("select O " +
+                "from Order O " +
+                "join O.member m").getResultList();
+    }
+
     /**
      * 동적쿼리 해결 방법
      * Querydsl 로 해결이 가능하다...
+     *
      * @param orderSearch
      * @return
      */
@@ -46,6 +53,7 @@ public class OrderRepository {
 
     /**
      * JPA Criteria
+     *
      * @param orderSearch
      * @return
      */
@@ -63,7 +71,7 @@ public class OrderRepository {
         }
 
         if (StringUtils.hasText(orderSearch.getMemberName())) {
-            Predicate name = cb.like(m.get("name"), "%" +orderSearch.getMemberName() + "%");
+            Predicate name = cb.like(m.get("name"), "%" + orderSearch.getMemberName() + "%");
             criteria.add(name);
         }
 

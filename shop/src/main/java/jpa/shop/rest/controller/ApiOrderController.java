@@ -24,7 +24,7 @@ public class ApiOrderController {
 
     @GetMapping("/v1/simple-orders")
     public List<Order> ordersV1() {
-        List<Order> orders = orderService.findOrders();
+        List<Order> orders = orderService.findAll();
         return orders;
     }
 }

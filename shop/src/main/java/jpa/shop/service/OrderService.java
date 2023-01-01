@@ -62,6 +62,10 @@ public class OrderService {
         order.cancel();
     }
 
+    public List<Order> findAll() {
+        return orderRepository.findAll();
+    }
+
     /**
      * 주문 검색
      */
