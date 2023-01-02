@@ -1,8 +1,8 @@
 package jpa.shop.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jpa.shop.domain.item.Item;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -20,6 +20,7 @@ public class OrderItem extends BaseEntity {
     @JoinColumn(name = "item_id")
     private Item item;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id")
     private Order order;
@@ -49,6 +50,6 @@ public class OrderItem extends BaseEntity {
     }
 
     public int getTotalPrice() {
-        return (int)(getOrderPrice() * getCount());
+        return (int) (getOrderPrice() * getCount());
     }
 }

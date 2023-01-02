@@ -1,5 +1,6 @@
 package jpa.shop.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,6 +26,7 @@ public class Member extends BaseEntity {
     @Embedded
     private Address address;
 
+    @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY
             , mappedBy = "member")
     private List<Order> orders = new ArrayList();

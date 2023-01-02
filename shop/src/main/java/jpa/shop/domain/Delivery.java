@@ -1,5 +1,6 @@
 package jpa.shop.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jpa.shop.domain.status.DeliveryStatus;
 import lombok.Getter;
 import lombok.Setter;
@@ -8,15 +9,16 @@ import javax.persistence.*;
 
 @Entity
 @Getter
-public class Delivery extends BaseEntity{
+public class Delivery extends BaseEntity {
 
     @Id
     @GeneratedValue
     @Column(name = "delivery_id")
     private Long id;
 
+    @JsonIgnore
     @OneToOne(fetch = FetchType.LAZY
-           , mappedBy = "delivery")
+            , mappedBy = "delivery")
     private Order order;
 
     @Embedded
