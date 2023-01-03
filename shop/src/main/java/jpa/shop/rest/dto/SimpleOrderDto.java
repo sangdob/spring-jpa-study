@@ -17,9 +17,9 @@ public class SimpleOrderDto {
 
     public SimpleOrderDto(Order order) {
         orderId = order.getId();
-        name = order.getMember().getName();
+        name = order.getMember().getName(); // LAZY 형태로 초기화 실행
         orderDate = order.getOrderDate();
         orderStatus = order.getStatus();
-        address = order.getDelivery().getAddress();
+        address = order.getDelivery().getAddress(); // LAZY 형태로 초기화 실행
     }
 }

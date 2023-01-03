@@ -31,6 +31,11 @@ public class ApiOrderController {
         return orders;
     }
 
+    /**
+     * N + 1 쿼리가 조회되는 현상 발생
+     *
+     * @return
+     */
     @GetMapping("/v2/simple-orders")
     public ResponseEntity<List<SimpleOrderDto>> ordersV2() {
         List<SimpleOrderDto> collect = orderService.findAll().stream()
