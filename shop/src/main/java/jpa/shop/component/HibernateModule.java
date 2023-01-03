@@ -12,13 +12,15 @@ public class HibernateModule {
      * 세팅하지 않은 상태에서 지연로딩은 null로 표시하게 만들어준다
      * <p>
      * force_lazy_loading일 경우 데이터를 긁어오는 형태
+     * <p>
+     * entity 노출을 하지 않도록 사용
      *
      * @return
      */
     @Bean
     private Hibernate5Module hibernate5Module() {
         Hibernate5Module hibernate5Module = new Hibernate5Module();
-        hibernate5Module.configure(Hibernate5Module.Feature.FORCE_LAZY_LOADING, true);
+//        hibernate5Module.configure(Hibernate5Module.Feature.FORCE_LAZY_LOADING, true);
         return hibernate5Module;
     }
 }
