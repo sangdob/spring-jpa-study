@@ -9,6 +9,7 @@ import jpa.shop.repository.ItemRepository;
 import jpa.shop.repository.MemberRepository;
 import jpa.shop.repository.OrderRepository;
 import jpa.shop.repository.OrderSearch;
+import jpa.shop.rest.dto.SimpleOrderQueryDto;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -64,6 +65,10 @@ public class OrderService {
 
     public List<Order> findAll() {
         return orderRepository.findAll();
+    }
+
+    public List<SimpleOrderQueryDto> findOrderDtos() {
+        return orderRepository.findOrderDtos();
     }
 
     /**

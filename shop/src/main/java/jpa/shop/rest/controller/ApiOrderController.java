@@ -2,6 +2,7 @@ package jpa.shop.rest.controller;
 
 import jpa.shop.domain.Order;
 import jpa.shop.rest.dto.SimpleOrderDto;
+import jpa.shop.rest.dto.SimpleOrderQueryDto;
 import jpa.shop.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -56,4 +57,13 @@ public class ApiOrderController {
         return ResponseEntity.ok()
                 .body(collect);
     }
+
+    @GetMapping("/v1/simple-orders-dto")
+    public ResponseEntity<List<SimpleOrderQueryDto>> orderDtoV1() {
+        List<SimpleOrderQueryDto> orderDtos = orderService.findOrderDtos();
+
+        return ResponseEntity.ok()
+                .body(orderDtos);
+    }
+
 }
