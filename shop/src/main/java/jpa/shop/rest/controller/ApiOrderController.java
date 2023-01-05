@@ -46,4 +46,14 @@ public class ApiOrderController {
                 .ok()
                 .body(collect);
     }
+
+    @GetMapping("/v3/simple-orders")
+    public ResponseEntity<List<SimpleOrderDto>> ordersV3() {
+        List<SimpleOrderDto> collect = orderService.findAllWithMemberDelivery().stream()
+                .map(order -> new SimpleOrderDto(order))
+                .collect(Collectors.toList());
+
+        return ResponseEntity.ok()
+                .body(collect);
+    }
 }
