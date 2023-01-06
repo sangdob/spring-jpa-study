@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api")
-public class ApiMemberController {
+public class MemberApiController {
     private final MemberService memberService;
 
     @GetMapping("/v1/members")
@@ -23,7 +23,7 @@ public class ApiMemberController {
         return ResponseEntity.ok().body(members);
     }
 
-//   find members count 개선안
+    //   find members count 개선안
     @GetMapping("/v2/members")
     public ResponseEntity findMembersV2() {
         SelectResult<List<SelectMemberResponse>> result = new SelectResult<>();

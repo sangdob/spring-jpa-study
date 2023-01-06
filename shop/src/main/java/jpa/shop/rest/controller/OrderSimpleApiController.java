@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api")
-public class ApiOrderController {
+public class OrderSimpleApiController {
 
     private final OrderService orderService;
 

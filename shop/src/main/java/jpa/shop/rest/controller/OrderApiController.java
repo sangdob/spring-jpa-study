@@ -1,0 +1,37 @@
+package jpa.shop.rest.controller;
+
+import jpa.shop.domain.Order;
+import jpa.shop.domain.OrderItem;
+import jpa.shop.service.OrderService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
+@RestController
+@RequiredArgsConstructor
+@RequestMapping("/api")
+public class OrderApiController {
+
+    private final OrderService orderService;
+
+    @GetMapping("/v1/orders")
+    public ResponseEntity<List<Order>> ordersV1() {
+        List<Order> all = orderService.findAll();
+
+        for (Order order : all) {
+            order.getMember().getName();
+            order.getDelivery().getAddress();
+
+            List<OrderItem> orderItems = order.getOrderItems();
+            orderItems.stream()
+                    .forEach(orderItem -> orderItem.getItem().getName());
+        }
+
+        return ResponseEntity.ok()
+                .body(all);
+    }
+}
