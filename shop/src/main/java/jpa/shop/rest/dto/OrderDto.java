@@ -2,12 +2,12 @@ package jpa.shop.rest.dto;
 
 import jpa.shop.domain.Address;
 import jpa.shop.domain.Order;
-import jpa.shop.domain.OrderItem;
 import jpa.shop.domain.status.OrderStatus;
 import lombok.Data;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Data
 
@@ -18,7 +18,7 @@ public class OrderDto {
     private LocalDateTime orderDate;
     private OrderStatus status;
     private Address address;
-    private List<OrderItem> orderItems;
+    private List<OrderItemDto> orderItems;
 
     public OrderDto(Order order) {
         orderId = order.getId();
@@ -27,7 +27,8 @@ public class OrderDto {
         status = order.getStatus();
         address = order.getDelivery().getAddress();
         order.getOrderItems().stream()
-                .map(orderItem -> orderItem.getItem().getName());
+                .map(orderItem -> new OrderItemDto(orderItem))
+                .collect(Collectors.toList());
         orderItems = order.getOrderItems();
     }
 }
