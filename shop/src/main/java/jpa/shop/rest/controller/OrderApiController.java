@@ -2,6 +2,7 @@ package jpa.shop.rest.controller;
 
 import jpa.shop.domain.Order;
 import jpa.shop.domain.OrderItem;
+import jpa.shop.rest.dto.OrderDto;
 import jpa.shop.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequiredArgsConstructor
@@ -33,5 +35,14 @@ public class OrderApiController {
 
         return ResponseEntity.ok()
                 .body(all);
+    }
+
+    @GetMapping("/v2/orders")
+    public ResponseEntity<List<OrderDto>> ordersV2() {
+        List<OrderDto> orders = orderService.findAll().stream()
+                .map(order -> new OrderDto(order))
+                .collect(Collectors.toList());
+
+        return ResponseEntity.ok().body(orders);
     }
 }
