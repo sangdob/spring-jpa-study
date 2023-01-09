@@ -45,4 +45,15 @@ public class OrderApiController {
 
         return ResponseEntity.ok().body(orders);
     }
+
+    @GetMapping("/v3/orders")
+    public ResponseEntity ordersV3() {
+        List<Order> allWithItems = orderService.findAllWithItems();
+        
+        List<OrderDto> orders = orderService.findAll().stream()
+                .map(order -> new OrderDto(order))
+                .collect(Collectors.toList());
+
+        return ResponseEntity.ok().body(allWithItems);
+    }
 }

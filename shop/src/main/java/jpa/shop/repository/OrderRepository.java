@@ -94,4 +94,24 @@ public class OrderRepository {
                         " join o.delivery d", SimpleOrderQueryDto.class)
                 .getResultList();
     }
+
+    /**
+     * jpa distinct 데이터베이스의 distinct와 다르게 데이터를 압축시켜준다
+     * jpa distinct 는 어플리케이션 자체에서 중복을 걸러주는 형식
+     * 단점 !!  페이징이 불가능하다
+     * 페이징을 실행시 데이터를 가지고 온 상태에서 페이징처리하므로 메모리누수가 심하다...
+     *
+     * @return
+     */
+    public List<Order> findAllWithItems() {
+        return entityManager.createQuery(
+                        "select distinct o from Order o " +
+                                " join fetch o.member m" +
+                                " join fetch o.delivery d" +
+                                " join fetch o.orderItems oi" +
+                                " join fetch oi.item i", Order.class)
+//                .setFirstResult(0)
+//                .setMaxResults(100)
+                .getResultList();
+    }
 }
