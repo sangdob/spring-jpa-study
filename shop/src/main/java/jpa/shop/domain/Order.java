@@ -3,7 +3,6 @@ package jpa.shop.domain;
 import jpa.shop.domain.status.DeliveryStatus;
 import jpa.shop.domain.status.OrderStatus;
 import lombok.Getter;
-import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -14,7 +13,7 @@ import java.util.List;
 @Entity
 @Table(name = "orders")
 @Getter
-public class Order extends BaseEntity{
+public class Order extends BaseEntity {
 
     @Id
     @GeneratedValue
@@ -26,7 +25,7 @@ public class Order extends BaseEntity{
     private Member member;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="delivery_id")
+    @JoinColumn(name = "delivery_id")
     private Delivery delivery;
 
     /**
@@ -42,7 +41,6 @@ public class Order extends BaseEntity{
     private LocalDateTime orderDate;
 
     protected Order() {
-
     }
 
     public void setStatus(OrderStatus status) {
@@ -70,6 +68,7 @@ public class Order extends BaseEntity{
 
     /**
      * order 생성 메서드
+     *
      * @param member
      * @param delivery
      * @param orderItems

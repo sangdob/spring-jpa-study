@@ -50,7 +50,10 @@ public class OrderSimpleApiController {
 
     @GetMapping("/v3/simple-orders")
     public ResponseEntity<List<SimpleOrderDto>> ordersV3() {
-        List<SimpleOrderDto> collect = orderService.findAllWithMemberDelivery().stream()
+        int offset = 0;
+        int limit = 100;
+        
+        List<SimpleOrderDto> collect = orderService.findAllWithMemberDelivery(offset, limit).stream()
                 .map(order -> new SimpleOrderDto(order))
                 .collect(Collectors.toList());
 
